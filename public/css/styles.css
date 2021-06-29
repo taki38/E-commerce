@@ -1,8 +1,9 @@
 .footer-custom {
     text-align: center;
-    position: static;
+    position: fixed;
     bottom: 0;
     width: 100%;
     padding-top: 25px;
     padding-bottom: 25px;
+    margin-top: 50px;
 }
