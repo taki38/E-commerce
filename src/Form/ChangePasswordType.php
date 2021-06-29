@@ -5,7 +5,6 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -13,44 +12,35 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
 
-class RegisterType extends AbstractType
+class ChangePasswordType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('email',EmailType::class,[
+                'disabled' => true,
+                'label' => 'Mon adresse email',
+            ])
             ->add('firstname', TextType::class,[
-                'label' => 'Prénom',
+                'disabled' => true
+            ])
+            ->add('lastname', TextType::class,[
+                'disabled' => true
+            ])
+            ->add('old_password', \Symfony\Component\Form\Extension\Core\Type\PasswordType::class,[
+                'label' => 'Votre mot de passe actuel',
+                'attr' => [
+                    'placeholder' => 'Merci de saisir votre mot de passe actuel'
+                ],
                 'constraints' => new Length([
-                    'min' => 2,
+                    'min' => 8,
                     'max' => 60
                 ]),
-                'attr' => [
-                    'placeholder' => 'Merci de saisir votre prénom'
-                ]
+                'mapped' => false
             ])
-            ->add('lastname',TextType::class,[
-                'label' => 'Nom',
-                'constraints' => new Length([
-                    'min' => 2,
-                    'max' => 60
-                ]),
-                'attr' => [
-                    'placeholder' => 'Merci de saisir votre nom'
-                ]
-            ])
-            ->add('email', EmailType::class,[
-                'label' => 'Email',
-                'constraints' => new Length([
-                    'min' => 2,
-                    'max' => 30
-                ]),
-                'attr' => [
-                    'placeholder' => 'Merci de saisir votre adresse email'
-                ]
-
-            ])
-            ->add('password',RepeatedType::class,[
-                'type'=> PasswordType::class,
+            ->add('new_password',RepeatedType::class,[
+                'type'=> \Symfony\Component\Form\Extension\Core\Type\PasswordType::class,
+                'mapped' => false,
                 'constraints' => new Length([
                     'min' => 8,
                     'max' => 60
@@ -59,19 +49,21 @@ class RegisterType extends AbstractType
                 'label' => 'Votre mot de passe',
                 'required' => true,
                 'first_options' => [
-                    'label'=>'Mot de passe',
+                    'label'=>'Votre nouveau de passe',
                     'attr' => [
-                        'placeholder' => 'Merci de saisir votre mot de passe'
+                        'placeholder' => 'Merci de saisir votre nouveau mot de passe'
                     ]
-                    ],
+                ],
                 'second_options' => [
-                    'label'=>'Confirmez votre mot de passe',
+                    'label'=>'Confirmez votre nouveau mot de passe',
                     'attr' => [
-                        'placeholder' => 'Merci de confirmer votre mot de passe'
+                        'placeholder' => 'Merci de confirmer votre nouveau mot de passe'
                     ]
-                    ],
+                ],
             ])
-
+            ->add('submit', SubmitType::class,[
+                'label' => 'Mettre à jour'
+            ])
 
         ;
     }

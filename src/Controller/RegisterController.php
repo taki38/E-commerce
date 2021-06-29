@@ -11,10 +11,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
-class RegiterController extends AbstractController
+class RegisterController extends AbstractController
 {
     /**
-     * @Route("/inscription", name="regiter")
+     * @Route("/inscription", name="register")
      */
     public function index(Request $request, UserPasswordEncoderInterface $encoder, EntityManagerInterface $entityManager): Response
     {
@@ -26,13 +26,14 @@ class RegiterController extends AbstractController
             $user = $form ->getData();
             $password = $encoder->encodePassword($user, $user->getPassword());
             $user->setPassword($password);
-
             $entityManager->persist($user);
             $entityManager->flush();
+
         }
 
-        return $this->render('regiter/index.html.twig', [
-            'form' => $form->createView()
+        return $this->render('register/index.html.twig', [
+            'form' => $form->createView(),
+            'title' => 'Inscription'
         ]);
     }
 }
