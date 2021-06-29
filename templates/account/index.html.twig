@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}
+    {% include 'parts/header.html.twig' %}
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5 mb-5">
+    <h1 class="text-center mb-5">Bienvenue {{ app.user.firstname }}</h1>
+    <div class="card-group">
+        <div class="card">
+            <div class="card-body text-center">
+                <h5 class="card-title">Mes commandes</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <a href="" class="btn btn-secondary">Mes commandes </a>
+            </div>
+
+        </div>
+        <div class="card ">
+            <div class="card-body text-center">
+                <h5 class="card-title">Modifier mon mot de passe</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <a href="{{ path('account_password') }}" class="btn btn-secondary">Modifier mon mot de passe </a>
+            </div>
+
+        </div>
+        <div class="card">
+            <div class="card-body text-center">
+                <h5 class="card-title">Gérer mes adresses</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <a href="" class="btn btn-secondary">Gérer mes adresses </a>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

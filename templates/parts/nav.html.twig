@@ -1,0 +1,43 @@
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="{{path('home')}}">Symfony Boutique</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Accueil</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">Qui Sommes Nous ?</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Boutique</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#!">Nos produits</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="#!">Meilleurs ventes</a></li>
+                        <li><a class="dropdown-item" href="#!">Nouveautés</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <form class="d-flex">
+                <button class="btn btn-outline-dark" type="submit">
+                    <i class="fas fa-shopping-cart"></i>                    Panier
+                    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                </button>
+            </form>
+            {% if app.user %}
+                <form class="d-flex m-1">
+                    <a class="nav-link text-dark " href="{{ path('account') }}"> Mon compte ({{ app.user.firstname }})</a>
+
+                </form>
+                <form class="d-flex m-1">
+                    <a class="nav-link text-dark"   href="{{ path('app_logout') }}"> <i class="fas fa-sign-out-alt"></i></a>
+
+                </form>
+            {% else %}
+                <form class="d-flex m-1">
+                    <a class="nav-link "  href="{{ path('app_login') }}">Me connecter <i class="fas fa-sign-in-alt"></i></a>
+                </form>
+            {% endif %}
+        </div>
+    </div>
+</nav>
