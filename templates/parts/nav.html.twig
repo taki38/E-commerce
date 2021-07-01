@@ -10,7 +10,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Boutique</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Nos produits</a></li>
+                        <li><a class="dropdown-item" href="{{path('product')}}">Nos produits</a></li>
                         <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item" href="#!">Meilleurs ventes</a></li>
                         <li><a class="dropdown-item" href="#!">Nouveautés</a></li>
@@ -19,10 +19,11 @@
             </ul>
 
             <form class="d-flex">
-                <button class="btn btn-outline-dark" type="submit">
+                <a href="{{ path('cart') }}" class="btn btn-outline-dark" type="submit">
                     <i class="fas fa-shopping-cart"></i>                    Panier
                     <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                </button>
+
+                </a>
             </form>
             {% if app.user %}
                 <form class="d-flex m-1">

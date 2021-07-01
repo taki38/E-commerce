@@ -38,7 +38,9 @@ class ProductController extends AbstractController
     {
         $product = $this->getDoctrine()->getRepository(Product::class)->findOneBySlug($slug);
 
-
+        if (!$product){
+            return $this->redirectToRoute('product');
+        }
         return $this->render('product/detail.html.twig', [
             'product' => $product,
             'title' => $product->getName(),
