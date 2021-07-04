@@ -43,8 +43,8 @@
                     <td>{{ (product.product.price / 100)|number_format(2, ',', '.') }} €</td>
                     <td>{{ ((product.product.price * product.quantity ) / 100)|number_format(2, ',', '.') }} €</td>
                     <td>
-                        <a href="{{ path('cart_remove', {'id' : product.product.id}) }}" >
-                            Suprimer
+                        <a href="{{ path('delete_to_cart', {'id' : product.product.id}) }}" >
+                            <i class="far fa-trash-alt text-danger"></i>
                         </a>
                     </td>
                 </tr>
@@ -54,15 +54,18 @@
 
         <tfoot>
         <tr>
-            <td colspan="4"> <b>Total de mon panier :</b></td>
+            <td colspan="4"> <b>Total de mon panier :<br/></b>
+            <b>Nombre de produit :</b> {{ cart|length }}</td>
             <td>{{ (total / 100)|number_format(2, ',', '.') }} €</td>
         </tr>
         </tfoot>
         </table>
         <div class="text-center ">
-            <b>Nombre de produit :</b> {{ cart|length }}<br/>
 
-            <a href="" class="btn btn-success btn-block mt-3">Valider mon panier</a>
+
+        </div>
+        <div class="d-grid gap-2">
+            <button class="btn btn-success" type="button">Valider mon panier</button>
         </div>
     {% else %}
         <hr>

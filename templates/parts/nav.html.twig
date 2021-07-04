@@ -36,7 +36,9 @@
                 </form>
             {% else %}
                 <form class="d-flex m-1">
-                    <a class="nav-link "  href="{{ path('app_login') }}">Me connecter <i class="fas fa-sign-in-alt"></i></a>
+                    <a href="{{ path('app_login') }}" class="btn btn-outline-dark" type="submit">
+                        <i class="fas fa-sign-in-alt"></i>                    Me connecter
+                    </a>
                 </form>
             {% endif %}
         </div>
