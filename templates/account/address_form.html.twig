@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+{% block header %}
+    {% include 'parts/header.html.twig' %}
+{% endblock %}
+{% block body %}
+    <div class="container mt-5 mb-5">
+        {{ form(form) }}
+    </div>
+{% endblock %}

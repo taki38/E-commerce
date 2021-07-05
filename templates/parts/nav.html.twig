@@ -27,11 +27,15 @@
             </form>
             {% if app.user %}
                 <form class="d-flex m-1">
-                    <a class="nav-link text-dark " href="{{ path('account') }}"> Mon compte ({{ app.user.firstname }})</a>
+                    <a href="{{ path('account') }}" class="btn btn-outline-dark" type="submit">
+                         Mon compte ({{ app.user.firstname }})
+                    </a>
 
                 </form>
                 <form class="d-flex m-1">
-                    <a class="nav-link text-dark"   href="{{ path('app_logout') }}"> <i class="fas fa-sign-out-alt"></i></a>
+                    <a href="{{ path('app_logout') }}" class="btn btn-outline-dark" type="submit">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </a>
 
                 </form>
             {% else %}

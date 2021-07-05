@@ -6,7 +6,7 @@
 
 {% block body %}
     <div class="container mb-5 mt-5">
-    Retrouvez l'ensemble des produits que vous avez ajouté à votre panier.
+    <p class="text-center"> Retrouvez l'ensemble des produits que vous avez ajouté à votre panier.</p>
 
     {% if cart|length > 0 %}
         <table class="table table-hover table-responsive mt-3">
@@ -69,7 +69,7 @@
         </div>
     {% else %}
         <hr>
-        <p><b>Votre panier est vide.</b></p>
+        <p class="text-center"><b>Votre panier est vide.</b></p>
     {% endif %}
     </div>
 {% endblock %}
