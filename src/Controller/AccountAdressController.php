@@ -41,7 +41,7 @@ class AccountAdressController extends AbstractController
             if ($cart->get()) {
                 return $this->redirectToRoute('home');
             } else {
-                return $this->redirectToRoute('account_address');
+                return $this->redirectToRoute('account_adress');
             }
         }
 
@@ -92,8 +92,8 @@ class AccountAdressController extends AbstractController
 
         }
 
-        return $this->render('account/address.html.twig', [
-
+        return $this->render('account/adress.html.twig', [
+            'title'=>'Gérer mes adresses'
         ]);
     }
 
