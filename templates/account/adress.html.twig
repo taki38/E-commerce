@@ -15,7 +15,7 @@
         {% else %}
             <div class="row">
                 {% for address in app.user.adresses %}
-                    <div class="col-md-4">
+                    <div class="col-md-4 d-flex justify-content-center align-items-center text-center">
                         <div class="card" style="width: 18rem;">
                             <div class="card-body">
                                 <h5 class="card-title">{{ address.name }}</h5>
@@ -23,7 +23,7 @@
                                     {{ address.adress }},<br/>
                                     {{ address.zipcode }} - {{ address.city }} - {{ address.country }}
                                 </p>
-                                <a href="{{ path('account_address_edit', {'id' : address.id}) }}">Modifier</a> | <a href="">Supprimer</a>
+                                <a href="{{ path('account_address_edit', {'id' : address.id}) }}">Modifier</a> | <a href="{{ path('account_address_delete', {'id' : address.id}) }}">Supprimer</a>
                             </div>
                         </div>
                     </div>
