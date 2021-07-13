@@ -35,7 +35,7 @@ class OrderType extends AbstractType
             ->add('submit', SubmitType::class, [
                 'label' => 'Valider ma commande',
                 'attr' => [
-                    'class' => 'btn btn-success btn-block'
+                    'class' => 'btn-success d-flex justify-content-center align-items-center'
                 ]
             ])
         ;

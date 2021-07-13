@@ -51,6 +51,16 @@ class Order
      */
     private $orderDetails;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $reference;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $state;
+
     public function __construct()
     {
         $this->orderDetails = new ArrayCollection();
@@ -147,6 +157,30 @@ class Order
                 $orderDetail->setMyOrder(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getReference(): ?string
+    {
+        return $this->reference;
+    }
+
+    public function setReference(string $reference): self
+    {
+        $this->reference = $reference;
+
+        return $this;
+    }
+
+    public function getState(): ?int
+    {
+        return $this->state;
+    }
+
+    public function setState(int $state): self
+    {
+        $this->state = $state;
 
         return $this;
     }
