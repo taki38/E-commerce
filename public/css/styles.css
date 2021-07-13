@@ -11,3 +11,15 @@ body{
     padding-bottom: 25px;
     margin-top: 50px;
 }
+
+.form-check {
+    background-color: #f4f8ff;
+    padding: 20px 65px;
+    margin-top: 7px;
+}
+
+.order-summary {
+    background-color: #f4f8ff;
+    padding: 20px;
+    margin-top: 22px;
+}
