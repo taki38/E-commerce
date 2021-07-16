@@ -39,7 +39,7 @@ class AccountAdressController extends AbstractController
             $entityManager->persist($address);
             $entityManager->flush();
             if ($cart->get()) {
-                return $this->redirectToRoute('home');
+                return $this->redirectToRoute('order');
             } else {
                 return $this->redirectToRoute('account_adress');
             }
