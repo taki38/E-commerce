@@ -49,7 +49,6 @@ class OrderController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $date = new \DateTime();
             $carriers = $form->get('carriers')->getData();
-
             $delivery = $form->get('addresses')->getData();
             $delivery_content = $delivery->getFirstname().' '.$delivery->getLastname();
             $delivery_content .= '<br/>'.$delivery->getPhone();
@@ -69,7 +68,7 @@ class OrderController extends AbstractController
             $order->setUser($this->getUser());
             $order->setCreatedAt($date);
             $order->setCarrierName($carriers->getName());
-            $order->setCarrierPrice($carriers->getPrice());
+            $order->setCarrierPrice($carriers->getPrice()*100);
             $order->setDelivery($delivery_content);
             $order->setState(0);
 

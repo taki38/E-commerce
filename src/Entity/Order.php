@@ -61,6 +61,24 @@ class Order
      */
     private $state;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $stripeSessionId;
+
+
+    public function getStripeSessionId(): ?string
+    {
+        return $this->stripeSessionId;
+    }
+
+
+    public function setStripeSessionId($stripeSessionId): self
+    {
+        $this->stripeSessionId = $stripeSessionId;
+        return $this;
+    }
+
     public function __construct()
     {
         $this->orderDetails = new ArrayCollection();
